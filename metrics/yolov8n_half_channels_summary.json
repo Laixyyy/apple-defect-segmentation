@@ -1,0 +1,19 @@
+{
+  "model": "YOLOv8n-seg with half of standard YOLOv8n channel width",
+  "input_size": [
+    160,
+    160
+  ],
+  "epochs": 100,
+  "initialization": "D:\\BIT\\fruits\\yolov8n-seg.pt",
+  "best_weights": "D:\\BIT\\fruits\\local_results\\yolov8n_half_channels_160_rtx2050\\weights\\best.pt",
+  "test_box_precision": 0.6801759390796591,
+  "test_box_recall": 0.664562939532406,
+  "test_box_map50": 0.6665936865272256,
+  "test_box_map50_95": 0.5199024271056273,
+  "test_mask_precision": 0.6589877589041413,
+  "test_mask_recall": 0.6538681130459606,
+  "test_mask_map50": 0.6340626463289254,
+  "test_mask_map50_95": 0.4529862019247487,
+  "ultralytics_flops_at_160": 0.2448704
+}

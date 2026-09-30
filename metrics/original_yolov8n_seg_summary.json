@@ -1,0 +1,47 @@
+{
+  "model": "Unmodified pretrained YOLOv8n-seg baseline",
+  "input_size": [
+    160,
+    160
+  ],
+  "epochs": 100,
+  "initialization": "D:\\BIT\\fruits\\yolov8n-seg.pt",
+  "best_weights": "D:\\BIT\\fruits\\local_results\\yolov8n_original_160_rtx2050\\weights\\best.pt",
+  "test_box_precision": 0.754769843497214,
+  "test_box_recall": 0.7188163278891255,
+  "test_box_map50": 0.75533074312647,
+  "test_box_map50_95": 0.6339098060939582,
+  "test_mask_precision": 0.7278954901440422,
+  "test_mask_recall": 0.719621277000666,
+  "test_mask_map50": 0.7264945916637819,
+  "test_mask_map50_95": 0.5613118525620441,
+  "test_box_per_class": {
+    "apple": {
+      "precision": 0.8443113256272142,
+      "recall": 0.8924731182795699,
+      "map50": 0.9364786392433357,
+      "map50_95": 0.8626230945783488
+    },
+    "apple-defect": {
+      "precision": 0.6652283613672137,
+      "recall": 0.5451595374986813,
+      "map50": 0.5741828470096042,
+      "map50_95": 0.40519651760956765
+    }
+  },
+  "test_mask_per_class": {
+    "apple": {
+      "precision": 0.8101980626564733,
+      "recall": 0.8817204301075269,
+      "map50": 0.9036002893496098,
+      "map50_95": 0.738232384109894
+    },
+    "apple-defect": {
+      "precision": 0.6455929176316111,
+      "recall": 0.5575221238938053,
+      "map50": 0.5493888939779541,
+      "map50_95": 0.3843913210141941
+    }
+  },
+  "ultralytics_flops_at_160": 0.717424
+}

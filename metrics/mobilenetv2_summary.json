@@ -1,0 +1,15 @@
+{
+  "model": "MobileNetV2 backbone + YOLO instance-segmentation head",
+  "input_size": [
+    160,
+    160
+  ],
+  "epochs": 100,
+  "best_weights": "D:\\BIT\\fruits\\local_results\\mobilenetv2_160_rtx2050\\weights\\best.pt",
+  "test_box_map50_95": 0.5968379729682225,
+  "test_mask_map50_95": 0.5387026799248493,
+  "test_box_map50": 0.7324332915042325,
+  "test_mask_map50": 0.705466256478367,
+  "ultralytics_flops": 2.9360352,
+  "flops_note": "GFLOPs is produced by Ultralytics model.info at imgsz=160."
+}

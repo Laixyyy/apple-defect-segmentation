@@ -1,0 +1,29 @@
+# YOLOv8n-seg neck and Segment head retained; only the backbone is MobileNetV2.
+nc: 2
+
+backbone:
+  # [out_channels, model_name, weights, unwrap, truncate, split]
+  - [-1, 1, TorchVision, [1280, mobilenet_v2, DEFAULT, True, 1, True]] # 0
+
+head:
+  # MobileNetV2 multi-scale outputs: P3/8, P4/16, P5/32.
+  - [0, 1, Index, [32, 7]]     # 1: P3/8
+  - [0, 1, Index, [96, 14]]    # 2: P4/16
+  - [0, 1, Index, [320, 18]]   # 3: P5/32
+
+  # Interface adapter, followed by the original YOLOv8n-seg neck/head widths.
+  - [3, 1, Conv, [256, 1, 1]]  # 4
+  - [-1, 1, SPPF, [256, 5]]    # 5
+  - [-1, 1, nn.Upsample, [None, 2, nearest]] # 6
+  - [[-1, 2], 1, Concat, [1]]  # 7
+  - [-1, 1, C2f, [128]]        # 8
+  - [-1, 1, nn.Upsample, [None, 2, nearest]] # 9
+  - [[-1, 1], 1, Concat, [1]]  # 10
+  - [-1, 1, C2f, [64]]         # 11: P3/8
+  - [-1, 1, Conv, [64, 3, 2]]  # 12
+  - [[-1, 8], 1, Concat, [1]]  # 13
+  - [-1, 1, C2f, [128]]        # 14: P4/16
+  - [-1, 1, Conv, [128, 3, 2]] # 15
+  - [[-1, 5], 1, Concat, [1]]  # 16
+  - [-1, 1, C2f, [256]]        # 17: P5/32
+  - [[11, 14, 17], 1, Segment, [nc, 32, 256]] # 18
